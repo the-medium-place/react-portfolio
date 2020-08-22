@@ -6,7 +6,6 @@ import ContactMe from './pages/ContactMe';
 import Navigation from './components/Navigation';
 import { Container, Col, Row } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
-
 import './App.css';
 
 const routes = [
@@ -19,34 +18,36 @@ const routes = [
 function App() {
   return (
     <Router>
-
-      <Container fluid>
+      <>
         <Row>
-          <Col md={2} id="sidebar-wrapper">
-            <Navigation />
+          <Col md={2} >
+            <Navigation routes={routes}/>
           </Col>
-          <Col md={10} id="content-wrapper">
-            {routes.map(({ path, Component }) => (
-              <Route key={path} exact path={path}>
-                {({ match }) => (
-                  <CSSTransition
-                    in={match != null}
-                    timeout={600}
-                    classNames="page"
-                    unmountOnExit
-                  >
-                    <div className="page">
-                      <Component />
-                    </div>
-                  </CSSTransition>
-                )}
-              </Route>
-            ))}
+          <Col md={10} >
+            <Container className="container">
+              {routes.map(({ path, Component }) => (
+                <Route key={path} exact path={path}>
+                  {({ match }) => (
+                    <CSSTransition
+                      in={match != null}
+                      timeout={300}
+                      classNames="page"
+                      unmountOnExit
+                    >
+                      <div className="page">
+                        <Component />
+                      </div>
+                    </CSSTransition>
+                  )}
+                </Route>
+              ))}
+            </Container>
           </Col>
         </Row>
-      </Container>
+      </>
     </Router>
-  );
+  )
+
 }
 
 export default App;

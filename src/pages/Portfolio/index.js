@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import API from '../../utils/API'
 import './style.css';
 
-export default function index() {
-    return (
-        <div className="test2">
-            <h1>portfolio</h1>
-            <br />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quo voluptates atque officia veniam officiis iste pariatur maxime neque modi inventore quidem fugit laborum architecto a expedita voluptatem, excepturi illum?</p>
-            <br />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quo voluptates atque officia veniam officiis iste pariatur maxime neque modi inventore quidem fugit laborum architecto a expedita voluptatem, excepturi illum?</p>
+export default class Portfolio extends Component {
 
-        </div>
+    state = {
+        reposArr: []
+    }
+
+    componentDidMount(){
+        API.getRepos()
+            .then(res => this.setState({ reposArr: res.data }))
+            .catch(err => console.log(err))
+    }
+render(){
+    return (
+        <>
+            {this.state.reposArr.map((repo, index) => {
+                return (
+                    <p key={index}>
+                    <a href={repo.html_url}>{repo.name}</a>
+                    <br />
+                    {repo.description}
+                    </p>)
+                })}
+        </>
     )
+}
 }
 
