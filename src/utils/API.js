@@ -8,7 +8,7 @@ export default {
     },
 
     sendMail: function(input){
-    sgMail.setApiKey('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');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
       to: 'zgstowell@gmail.com',
       from: input.userEmail,
