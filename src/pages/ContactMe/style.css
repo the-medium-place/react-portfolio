@@ -1,5 +1,12 @@
 .contactme-wrapper {
-    height: 200vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
     background: lightgoldenrodyellow;
+    height: 200vh;
     padding: 3em;
+
 }

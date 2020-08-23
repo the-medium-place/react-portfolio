@@ -18,15 +18,17 @@ const routes = [
 function App() {
   return (
     <Router>
-      <>
         <Row>
           <Col md={2} >
             <Navigation routes={routes}/>
           </Col>
           <Col md={10} >
             <Container className="container">
+              {/* MAP THE ROUTES ARRAY AND CAPTURE THE path AND Component KEYS/VALUES */}
               {routes.map(({ path, Component }) => (
+                // CREATE ROUTE WITH EACH path FROM routes OBJECTS
                 <Route key={path} exact path={path}>
+                  {/* UTILIZE match PROPERTY IN Route FOR TRANSITION TIMING */}
                   {({ match }) => (
                     <CSSTransition
                       in={match != null}
@@ -35,6 +37,7 @@ function App() {
                       unmountOnExit
                     >
                       <div className="page">
+                        {/* LOAD VALUE FOR EACH Component */}
                         <Component />
                       </div>
                     </CSSTransition>
@@ -44,7 +47,6 @@ function App() {
             </Container>
           </Col>
         </Row>
-      </>
     </Router>
   )
 

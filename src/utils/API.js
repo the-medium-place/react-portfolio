@@ -1,22 +1,50 @@
 import axios from "axios";
 import sgMail from '@sendgrid/mail';
+import dotenv from 'dotenv';
+dotenv.config();
 
+const API_KEY = process.env.REACT_APP_SENDGRID_API_KEY;
 
 export default {
-    getRepos: function(){
-        return axios.get("https://api.github.com/users/the-medium-place/repos")
-    },
+  getRepos: function () {
+    return axios.get("https://api.github.com/users/the-medium-place/repos")
+  },
 
-    sendMail: function(input){
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  sendMail: function (input) {
+    sgMail.setApiKey(API_KEY);
     const msg = {
       to: 'zgstowell@gmail.com',
-      from: input.userEmail,
+      from: 'zgstowell@gmail.com',
       subject: `from ${input.username}`,
       text: input.userMessage,
-      html: `<strong>${input.userMessage}</strong>`,
+      html: `<strong>NAME: ${input.username} <br> EMAIL: ${input.userEmail} <br> MESSAGE: ${input.userMessage}</strong>`,
     };
     console.log(msg)
-    sgMail.send(msg).catch(err=>console.log(err));
-    }
-};
+    // sgMail.send(msg).catch(err => console.log(err));
+
+    //ES6
+    sgMail
+      .send(msg)
+      .then(() => { }, error => {
+        console.error(error);
+
+        if (error.response) {
+          console.error(error.response.body)
+        }
+      });
+    //ES8
+    // (async () => {
+    //   try {
+    //     await sgMail.send(msg);
+    //   } catch (error) {
+    //     console.error(error);
+
+    //     if (error.response) {
+    //       console.error(error.response.body)
+    //     }
+    //   }
+    // })();
+  }
+
+
+}

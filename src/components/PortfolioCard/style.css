@@ -1,0 +1,50 @@
+.port-card {
+    border: 3px solid darkgray;
+    margin: 0 auto;
+    width: 45%;
+    margin-bottom: 66px;
+    padding: 2em;
+    background: lightgray;
+    color: rgb(28, 28, 28);
+    border-radius: 8px;
+    box-shadow: 8px 8px 3em 10px inset gray, 3px 3px 3px 3px black;
+
+}
+
+.repo-link {
+    border: 1px solid rgb(120, 120, 0);
+    border-radius: 50%;
+    padding: 1.3em;
+    width: 170px;
+    background: rgb(120, 120, 0);
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 8px 8px 12px 6px inset rgb(177, 177, 0), 1px 1px 1px 1px darkslategray;
+    position: absolute;
+    margin-left: 20%;
+    margin-top: -15px
+}
+
+
+.deploy-link {
+    border-radius: 50%;
+    padding: 1.3em;
+    width: 170px;
+    background: rgb(120, 120, 0);
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 8px 8px 12px 6px inset rgb(177, 177, 0), 1px 1px 1px 1px darkslategray;
+    position: absolute;
+    /* margin-left: 20%; */
+    margin-top: -15px
+}
+
+.repo-link a, .deploy-link a {
+    color: white;
+}
+
+.repo-link:hover, .deploy-link:hover {
+    background: rgb(177, 177, 0);
+    box-shadow: 8px 8px 12px 6px inset rgb(120, 120, 0), 1px 1px 1px 1px darkslategray;
+    transition: 0.5s;
+}
