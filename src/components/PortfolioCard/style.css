@@ -2,7 +2,7 @@
     border: 3px solid darkgray;
     margin: 0 auto;
     width: 45%;
-    margin-bottom: 66px;
+    /* margin-bottom: 66px; */
     padding: 2em;
     background: lightgray;
     color: rgb(28, 28, 28);
@@ -12,6 +12,7 @@
 }
 
 .repo-link {
+    position: relative;
     border: 1px solid rgb(120, 120, 0);
     border-radius: 50%;
     padding: .3em;
@@ -24,26 +25,14 @@
     /* margin-left: 20%; */
     /* margin-top: -15px; */
     font-size: 2em;
-}
+    margin: 0 auto;
+    z-index: 100 !important;
 
-
-.deploy-link {
-    border: 1px solid rgb(120, 120, 0);
-    border-radius: 50%;
-    padding: .3em;
-    width: 100px;
-    background: rgb(120, 120, 0);
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 8px 8px 12px 6px inset rgb(177, 177, 0), 1px 1px 1px 1px darkslategray;
-    position: absolute;
-    /* margin-left: -16%; */
-    margin-top: -15px;
-    font-size: 2em;
 }
 
 button {
     color: white;
+
 }
 
 /* .repo-link:hover, .deploy-link:hover {
@@ -53,12 +42,12 @@ button {
 /* }  */
 
 .button-wrapper {
-    align-items: center;
-    width: 100%;
+    text-align: center;
+    padding: 3em;
+    margin-top: -75px;
+    /* width: auto; */
 }
 
 .card-wrapper {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
+    margin-top: 66px;
 }

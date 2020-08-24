@@ -5,28 +5,31 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-
 library.add(fab, fas);
 
 export default function index(props) {
-    const sorted = [typeof (props)];
-    console.log(sorted)
+    // console.log(props)
     return (
-            // {(props.homepage) ? (
         <div className="card-wrapper">
             {/* LOAD ONLY REPOS WITH HOMEPAGE VALUE */}
             <motion.div className="port-card text-center"
                 whileHover={{
-                    scale: 1.2
+                    scale: 1.1
                 }}>
                 <a href={props.homepage}><h3>{(props.name).toUpperCase()}</h3></a>
                 <p>
                     {(props.description) ? props.description : 'no description yet'}
                     <br />{(props.updated_at)}
+
                 </p>
+                <br />
+                {(props.languageObj) ? (
+                    <h4>{Object.keys(props.languageObj).join(', ')}</h4>
+                ) : console.log()}
+
 
             </motion.div>{/* // end of .port-card */}
-            {/* <div className="button-wrapper"> */}
+            <div className="button-wrapper">
                 <a href={props.html_url}>
                     <motion.button
                         className="repo-link"
@@ -38,10 +41,9 @@ export default function index(props) {
                         <FontAwesomeIcon icon={["fab", "github"]} />
                     </motion.button>
                 </a>
-            {/* </div>  */}
+            </div> 
+            <div>
+            </div>
         </div> 
-            // ) : ()}
-    // }
-
     )
 }

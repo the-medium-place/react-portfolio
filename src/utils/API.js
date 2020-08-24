@@ -10,6 +10,10 @@ export default {
     return axios.get("https://api.github.com/users/the-medium-place/repos")
   },
 
+  getRepoLanguages: function (repoName) {
+    return axios.get(`https://api.github.com/repos/the-medium-place/${repoName}/languages`)
+  },
+
   sendMail: function (input) {
     sgMail.setApiKey(API_KEY);
     const msg = {
