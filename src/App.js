@@ -9,6 +9,7 @@ import { CSSTransition } from 'react-transition-group';
 import './App.css';
 
 const routes = [
+  { path: '/', name: 'Home', Component: AboutMe },
   { path: '/home', name: 'Home', Component: AboutMe },
   { path: '/portfolio', name: 'Portfolio', Component: Portfolio },
   { path: '/contactme', name: 'Contact Me', Component: ContactMe }
@@ -20,7 +21,7 @@ function App() {
     <Router>
         <Row>
           <Col md={2} >
-            <Navigation routes={routes}/>
+            <Navigation routes={routes.slice(1, (routes.length))}/>
           </Col>
           <Col md={10} >
             <Container className="container">

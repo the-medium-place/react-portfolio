@@ -14,9 +14,10 @@ export default function index(props) {
             {/* LOAD ONLY REPOS WITH HOMEPAGE VALUE */}
             <motion.div className="port-card text-center"
                 whileHover={{
-                    scale: 1.1
+                    scale: 1.1,
+                    marginBottom: "30px"
                 }}>
-                <a href={props.homepage}><h3>{(props.name).toUpperCase()}</h3></a>
+                <a href={props.homepage}><h2 className="repo-name">{(props.name).toUpperCase()}</h2></a>
                 <p>
                     {(props.description) ? props.description : 'no description yet'}
                     <br />{(props.updated_at)}
@@ -30,7 +31,7 @@ export default function index(props) {
 
             </motion.div>{/* // end of .port-card */}
             <div className="button-wrapper">
-                <a href={props.html_url}>
+                <a href={props.html_url} target="_blank" rel="noopener noreferrer">
                     <motion.button
                         className="repo-link"
                         whileHover={{

@@ -3,6 +3,7 @@ import './style.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from "react-router-dom";
+import faceIcon from '../../assets/images/faceIcon.png';
 
 
 export default function index(props) {
@@ -13,6 +14,7 @@ export default function index(props) {
             {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
             {/* <Navbar.Collapse id="basic-navbar-nav"> */}
             <Nav className="col-md-12 d-block sidebar">
+                <img src={faceIcon} className="nav-icon" alt="face icon"/>
                 <Nav.Link to="/home" as={NavLink} className="closebtn" exact>x</Nav.Link>
                 {props.routes.map(route => (
                     <Nav.Link

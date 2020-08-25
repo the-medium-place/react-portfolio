@@ -18,18 +18,16 @@ export default class Portfolio extends Component {
                 // REPOS WITHOUT 'homepage' VALUE
                 res.data = res.data.filter(repo => repo.homepage !== null)
                 // ADD LANGUAGES TO STATE OBJ
-                res.data.map(repo => {
+                res.data.forEach((repo) => {
                     API.getRepoLanguages(repo.name)
                     .then(langs => {
                         // console.log(langs.data)
                         repo.languageObj = langs.data;
                         this.setState({ reposArr: res.data });
-                         
                     })
                 })
-
             })
-            .catch(err => console.log(err))
+            .catch(err => console.error(err))
     }
 
 
@@ -38,7 +36,7 @@ export default class Portfolio extends Component {
             <>
                 {/* CHECK FOR API RESULTS AND LOAD THEM IF PRESENT */}
                 {this.state.reposArr.length > 0 ? this.state.reposArr.sort((a, b) => new Date(b.size) - new Date(a.size)).map((repo, index) => {
-                   console.log(repo)
+                //    console.log(repo)
                     return (
 
                         <PortfolioCard key={index} html_url={repo.html_url} name={repo.name} description={repo.description} updated_at={repo.updated_at} homepage={repo.homepage} languageObj={(repo.languageObj)} />

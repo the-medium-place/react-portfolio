@@ -8,7 +8,31 @@
     color: rgb(28, 28, 28);
     border-radius: 8px;
     box-shadow: 8px 8px 3em 10px inset gray, 3px 3px 3px 3px black;
+}
 
+.repo-name {
+    border: 3px solid rgb(53, 53, 53);
+    padding: 10px;
+    border-radius: 25px;
+    background: rgb(177, 177, 0);
+    box-shadow: 3px 3px 3em 6px inset gray;
+    color: white;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px 3px black;
+    width: auto;
+    overflow-y: auto;
+    transition: 0.5s;
+}
+
+.repo-name:hover {
+    transform: scale(1.1);
+    box-shadow: 3px 3px 3em 6px inset gray, 3px 3px 5px 5px black;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.repo-name a {
+    text-decoration: none;
 }
 
 .repo-link {

@@ -6,11 +6,11 @@ import faceIcon from '../../assets/images/faceIcon.png';
 export default function index() {
     return (
         <motion.img
-        className="loading"
-        src={faceIcon}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 5, repeat: Infinity, repeatDelay: false }}>
-            {/* <img src={faceIcon} /> */}
+            className="loading"
+            alt=""
+            src={faceIcon}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 5, repeat: Infinity, repeatDelay: false }}>
         </motion.img>
     )
 }
