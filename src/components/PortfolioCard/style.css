@@ -1,7 +1,7 @@
 .port-card {
     border: 3px solid darkgray;
     margin: 0 auto;
-    width: 45%;
+    width: 60%;
     /* margin-bottom: 66px; */
     padding: 2em;
     background: lightgray;
@@ -11,6 +11,7 @@
 }
 
 .repo-name {
+    display: flex;
     border: 3px solid rgb(53, 53, 53);
     padding: 10px;
     border-radius: 25px;
@@ -18,20 +19,27 @@
     box-shadow: 3px 3px 3em 6px inset gray;
     color: white;
     font-weight: bold;
-    text-shadow: 3px 3px 3px 3px black;
+    text-shadow: 1px 1px black;
     width: auto;
     overflow-y: auto;
     transition: 0.5s;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+}
+
+
+.repo-name a {
+    color: white;
 }
 
 .repo-name:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 3px 3px 3em 6px inset gray, 3px 3px 5px 5px black;
     transition: 0.3s;
-    text-decoration: none;
 }
 
-.repo-name a {
+.repo-name-wrapper a {
     text-decoration: none;
 }
 
@@ -45,9 +53,6 @@
     font-size: 18px;
     font-weight: bold;
     box-shadow: 8px 8px 12px 6px inset rgb(177, 177, 0), 1px 1px 1px 1px darkslategray;
-    /* position: absolute; */
-    /* margin-left: 20%; */
-    /* margin-top: -15px; */
     font-size: 2em;
     margin: 0 auto;
     z-index: 100 !important;
@@ -56,6 +61,7 @@
 
 button {
     color: white;
+    text-shadow: 1px 1px darkslategray;
 
 }
 
@@ -74,4 +80,23 @@ button {
 
 .card-wrapper {
     margin-top: 66px;
+}
+
+/* Responsive layout - makes a two column-layout instead of three columns */
+
+@media screen and (max-width: 800px) {
+    .port-card {
+        width: 80%;
+    }
+
+    .repo-name {
+        font-size: 22px;
+    }
+
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+
 }

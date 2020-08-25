@@ -5,8 +5,7 @@
 
 .wrapper {
     width: 100%;
-    background: lightgoldenrodyellow;
-    height: 200vh;
+    /* background: lightgoldenrodyellow; */
+    height: auto;
     padding: 3em;
-
 }

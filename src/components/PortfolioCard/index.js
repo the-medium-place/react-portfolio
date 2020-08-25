@@ -17,7 +17,9 @@ export default function index(props) {
                     scale: 1.1,
                     marginBottom: "30px"
                 }}>
-                <a href={props.homepage}><h2 className="repo-name">{(props.name).toUpperCase()}</h2></a>
+                <div className="repo-name-wrapper">
+                    <a href={props.homepage}><h2 className="repo-name" target="_blank" rel="noopener noreferrer">{(props.name).toUpperCase()}</h2></a>
+                </div>
                 <p>
                     {(props.description) ? props.description : 'no description yet'}
                     <br />{(props.updated_at)}
@@ -42,9 +44,9 @@ export default function index(props) {
                         <FontAwesomeIcon icon={["fab", "github"]} />
                     </motion.button>
                 </a>
-            </div> 
+            </div>
             <div>
             </div>
-        </div> 
+        </div>
     )
 }

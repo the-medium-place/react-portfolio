@@ -14,8 +14,8 @@ export default function index(props) {
             {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
             {/* <Navbar.Collapse id="basic-navbar-nav"> */}
             <Nav className="col-md-12 d-block sidebar">
-                <img src={faceIcon} className="nav-icon" alt="face icon"/>
-                <Nav.Link to="/home" as={NavLink} className="closebtn" exact>x</Nav.Link>
+                <Navbar.Brand><img src={faceIcon} className="nav-icon" alt="face icon"/></Navbar.Brand>
+                {/* <Nav.Link to="/home" as={NavLink} className="closebtn" exact>x</Nav.Link> */}
                 {props.routes.map(route => (
                     <Nav.Link
                     key={route.path}
