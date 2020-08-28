@@ -52,14 +52,14 @@ export default function Index(props) {
                         <FontAwesomeIcon icon={["fab", "github"]} />
                     </motion.button>
                 </a>
-                <motion.button
+                {/* <motion.button
                     className="readme-link"
                     onClick={() => setModalShow(true)}
                     whileHover={{
                         scale: 1.2
                     }}>
                     View README
-                </motion.button>
+                </motion.button> */}
 
                 <ReadmeModal
                     show={modalShow}

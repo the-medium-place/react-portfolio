@@ -1,7 +1,11 @@
 .opening-blurb {
     font-size: 2em;
     /* color: rgba(238, 238, 0, 0.719); */
-    color: rgb(185, 185, 185);
+}
+
+.top-box a {
+    /* color: rgb(182, 182, 182); */
+    text-decoration: none;
 }
 
 #top-img {
@@ -11,6 +15,23 @@
 
 .top-box {
     margin-top: 40px;
+    padding: 1.5em;
+    /* color: rgb(167, 121, 121); */
+    opacity: 1;
+
+}
+
+.content-box {
+    border: 3px solid darkgray;
+    margin: 45px auto;
+    width: 80%;
+    /* margin-bottom: 66px; */
+    padding: 2em;
+    background: lightgray;
+    color: rgb(28, 28, 28);
+    border-radius: 8px;
+    box-shadow: 8px 8px 3em 10px inset gray, 3px 3px 3px 3px black;
+
 }
 
 /* Responsive layout - makes a two column-layout instead of three columns */

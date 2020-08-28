@@ -2,22 +2,23 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import API from '../../utils/API';
 import resume from '../../assets/files/ZacStowell.pdf';
+import './style.css';
 
 export default function index(props) {
     return (
-        <div>
+        <div >
             <Modal
                 {...props}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="modal-box" >
                     <Modal.Title id="contained-modal-title-vcenter">
-                        {/* {props.name} */}
+                        My Resume
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className="modal-box">
                     <object>
 
                     <embed src={resume} width="100%" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
@@ -42,7 +43,7 @@ export default function index(props) {
                     
                     }
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className="modal-box">
                     <Button onClick={props.onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>

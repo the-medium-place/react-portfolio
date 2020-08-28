@@ -7,19 +7,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background: url('./assets/images/adrian-korte-5gn2soeAc40-unsplash.jpg');
-  background-color: rgb(46, 46, 46);
+  background-color: rgb(189, 189, 189);
   background-size: cover;
   background-attachment: fixed;
-  color: rgb(216, 216, 216);
+  background-position: bottom right;
+  color: rgb(36, 36, 36);
   font-family: "Lato", sans-serif;
 
+
 }
 
-body a {
-  color: rgb(216, 216, 216);
+/* body a {
+  color: rgb(36, 36, 36);
   text-decoration: none;
 
-}
+} */
 
 body a:hover {
   text-decoration: none;

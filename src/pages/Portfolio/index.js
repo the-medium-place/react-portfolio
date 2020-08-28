@@ -41,7 +41,15 @@ export default class Portfolio extends Component {
                 //    console.log(repo)
                     return (
 
-                        <PortfolioCard key={index} readmeURL={repo.readmeURL} html_url={repo.html_url} name={repo.name} description={repo.description} updated_at={repo.updated_at} homepage={repo.homepage} languageObj={(repo.languageObj)} />
+                        <PortfolioCard 
+                        key={index} 
+                        readmeURL={repo.readmeURL} 
+                        html_url={repo.html_url} 
+                        name={repo.name} 
+                        description={repo.description} 
+                        updated_at={repo.updated_at} 
+                        homepage={repo.homepage} 
+                        languageObj={(repo.languageObj)} />
                     )
                 }) : (
                         <div className="loading-wrapper">
