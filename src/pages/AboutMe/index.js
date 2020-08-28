@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
-import Resume from '../../assets/files/ZacStowell.pdf';
-import BigPic from '../../assets/images/Seattle-Brand-Headshot-Photographer-35.jpg';
+// import BigPic from '../../assets/images/Seattle-Brand-Headshot-Photographer-35.jpg';
 import { Row, Col } from 'react-bootstrap';
-import ReadmeModal from '../../components/ReadmeModal';
 
 
 export default function Index() {
-
-    const [modalShow, setModalShow] = useState(false);
-
-
 
 
     return (
@@ -23,16 +17,7 @@ export default function Index() {
                     MySQL/Sequelize, Command Line, and Git. I also like to dabble in a few other languages including
                     Python and ASL.
                 </p>
-                    <button className="btn btn-primary submit-btn" onClick={() => setModalShow(true)}>See my Resume</button>
-                    <ReadmeModal
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
                     
-                />
-                    {/* <a href={Resume} target="_blank" rel="noopener noreferrer"><button className="btn btn-primary submit-btn"
-                        value="here">See my Resume</button></a> */}
-                    <br />
-                    <br />
                 </Col>
                 {/* <figure className="col-md-5">
 

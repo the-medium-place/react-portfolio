@@ -38,6 +38,12 @@
     transition: 0.3s;
 }
 
+.repo-name:active {
+    transform: scale(1);
+    box-shadow: 3px 3px 3em 6px inset gray;
+    
+}
+
 .repo-name-wrapper a {
     text-decoration: none;
 }

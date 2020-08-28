@@ -37,7 +37,7 @@ export default class Portfolio extends Component {
         return (
             <div className="portfolio-wrapper">
                 {/* CHECK FOR API RESULTS AND LOAD THEM IF PRESENT */}
-                {this.state.reposArr.length > 0 ? this.state.reposArr.sort((a, b) => new Date(b.size) - new Date(a.size)).map((repo, index) => {
+                {this.state.reposArr.length > 0 ? this.state.reposArr.sort((a, b) => b.size - a.size).map((repo, index) => {
                 //    console.log(repo)
                     return (
 

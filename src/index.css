@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background: url('./assets/images/adrian-korte-5gn2soeAc40-unsplash.jpg');
+  /* background: url('./assets/images/aliane-schwartzhaupt-QdmUva6qBTk-unsplash.jpg'); */
+
   background-color: rgb(189, 189, 189);
   background-size: cover;
   background-attachment: fixed;

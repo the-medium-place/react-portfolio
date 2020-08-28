@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import API from '../../utils/API';
+// import API from '../../utils/API';
 import resume from '../../assets/files/ZacStowell.pdf';
 import './style.css';
 
@@ -13,9 +13,9 @@ export default function index(props) {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
-                <Modal.Header closeButton className="modal-box" >
+                <Modal.Header closeButton >
                     <Modal.Title id="contained-modal-title-vcenter">
-                        My Resume
+                        My Resum&eacute;
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="modal-box">

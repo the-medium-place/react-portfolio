@@ -4,13 +4,13 @@ import AboutMe from './pages/AboutMe';
 import Portfolio from './pages/Portfolio';
 import ContactMe from './pages/ContactMe';
 import Navigation from './components/Navigation';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
 import './App.css';
 
 const routes = [
-  { path: '/', name: 'Home', Component: AboutMe },
-  { path: '/home', name: 'Home', Component: AboutMe },
+  { path: '/', name: '', Component: AboutMe },
+  { path: '/home', name: 'About Me', Component: AboutMe },
   { path: '/portfolio', name: 'Portfolio', Component: Portfolio },
   { path: '/contactme', name: 'Contact Me', Component: ContactMe }
 ]
@@ -20,10 +20,10 @@ function App() {
   return (
     <Router>
         <Row>
-          <Col md={2} >
+          {/* <Col md={2} > */}
             <Navigation routes={routes.slice(1, (routes.length))}/>
-          </Col>
-          <Col md={10} >
+          {/* </Col> */}
+          {/* <Col > */}
             <Container className="container">
               {/* MAP THE ROUTES ARRAY AND CAPTURE THE path AND Component KEYS/VALUES */}
               {routes.map(({ path, Component }) => (
@@ -46,7 +46,7 @@ function App() {
                 </Route>
               ))}
             </Container>
-          </Col>
+          {/* </Col> */}
         </Row>
     </Router>
   )

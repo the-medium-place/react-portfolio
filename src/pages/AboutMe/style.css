@@ -27,10 +27,11 @@
     width: 80%;
     /* margin-bottom: 66px; */
     padding: 2em;
-    background: lightgray;
+    background: rgb(211, 211, 211, .8);
     color: rgb(28, 28, 28);
+    font-weight: bold;
     border-radius: 8px;
-    box-shadow: 8px 8px 3em 10px inset gray, 3px 3px 3px 3px black;
+    box-shadow: 8px 8px 3em 10px inset rgb(128, 128, 128);
 
 }
 
