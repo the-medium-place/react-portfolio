@@ -31,7 +31,7 @@
   transition: opacity 300ms, transform 300ms;
 }
 
-#sidebar {
+/* #sidebar { */
   /* position: fixed;
   top: 0;
   bottom: 0;
@@ -41,4 +41,4 @@
   flex-direction: column;
   background: salmon; */
   /* width: auto; */
-}
+/* } */

@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
 import faceIcon from '../../assets/images/faceIcon.png';
 
@@ -10,12 +11,14 @@ export default function index(props) {
     return (
         // <div className="sidebar">
         // <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
-        <Navbar variant="dark" expand="md">
-            {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-            {/* <Navbar.Collapse id="basic-navbar-nav"> */}
-            <Nav className="col-md-12 d-block sidebar">
+        // <Navbar variant="dark" expand="md">
+        <Navbar collapseOnSelect expand="lg">
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            {/* <Navbar.Toggle as={{<Button>}} /> */}
+
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Navbar.Brand><img src={faceIcon} className="nav-icon" alt="face icon"/></Navbar.Brand>
-                {/* <Nav.Link to="/home" as={NavLink} className="closebtn" exact>x</Nav.Link> */}
+            <Nav className="flex-column sidebar">
                 {props.routes.map(route => (
                     <Nav.Link
                     key={route.path}
@@ -28,7 +31,7 @@ export default function index(props) {
                     </Nav.Link>
                 ))}
             </Nav>
-                {/* </Navbar.Collapse> */}
+                </Navbar.Collapse>
         </Navbar>
         // </div>
     )

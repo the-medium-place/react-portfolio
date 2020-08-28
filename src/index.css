@@ -6,7 +6,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: rgb(46, 46, 46);
+  background: url('./assets/images/adrian-korte-5gn2soeAc40-unsplash.jpg');
+  background-color: rgb(46, 46, 46);
+  background-size: cover;
+  background-attachment: fixed;
   color: rgb(216, 216, 216);
+  font-family: "Lato", sans-serif;
+
+}
+
+body a {
+  color: rgb(216, 216, 216);
+  text-decoration: none;
+
+}
+
+body a:hover {
+  text-decoration: none;
+  color: rgb(120, 120, 0)
 }
 

@@ -17,6 +17,7 @@ export default class Portfolio extends Component {
                 // FILTER RESULT TO REMOVE 
                 // REPOS WITHOUT 'homepage' VALUE
                 res.data = res.data.filter(repo => repo.homepage !== null)
+                console.log(res.data)
                 // ADD LANGUAGES TO STATE OBJ
                 res.data.forEach((repo) => {
                     API.getRepoLanguages(repo.name)
@@ -25,6 +26,7 @@ export default class Portfolio extends Component {
                         repo.languageObj = langs.data;
                         this.setState({ reposArr: res.data });
                     })
+
                 })
             })
             .catch(err => console.error(err))
@@ -39,7 +41,7 @@ export default class Portfolio extends Component {
                 //    console.log(repo)
                     return (
 
-                        <PortfolioCard key={index} html_url={repo.html_url} name={repo.name} description={repo.description} updated_at={repo.updated_at} homepage={repo.homepage} languageObj={(repo.languageObj)} />
+                        <PortfolioCard key={index} readmeURL={repo.readmeURL} html_url={repo.html_url} name={repo.name} description={repo.description} updated_at={repo.updated_at} homepage={repo.homepage} languageObj={(repo.languageObj)} />
                     )
                 }) : (
                         <div className="loading-wrapper">

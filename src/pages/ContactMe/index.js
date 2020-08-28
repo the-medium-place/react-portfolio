@@ -41,7 +41,7 @@ export default class ContactMe extends React.Component {
     render() {
         return (
            <>
-            <ContactForm />
+            <ContactForm handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
            </>
         )
     }

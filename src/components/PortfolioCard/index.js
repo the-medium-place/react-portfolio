@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { motion } from 'framer-motion';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { Button } from 'react-bootstrap';
+import ReadmeModal from '../ReadmeModal';
+
 library.add(fab, fas);
 
-export default function index(props) {
+export default function Index(props) {
+
+    // testing for modal
+    const [modalShow, setModalShow] = useState(false);
+
+    // const handleClose = () => setModalShow(false);
+    // const handleShow = () => setModalShow(true);
+
+
     // console.log(props)
     return (
         <div className="card-wrapper">
-            {/* LOAD ONLY REPOS WITH HOMEPAGE VALUE */}
             <motion.div className="port-card text-center"
                 whileHover={{
                     scale: 1.1,
@@ -37,13 +47,26 @@ export default function index(props) {
                     <motion.button
                         className="repo-link"
                         whileHover={{
-                            scale: 1.2,
-                            backgroundColor: 'rgb(177, 177, 0)',
-                            // boxShadow: '8px 8px 12px 6px inset rgb(120, 120, 0)'
+                            scale: 1.2
                         }}>
                         <FontAwesomeIcon icon={["fab", "github"]} />
                     </motion.button>
                 </a>
+                <motion.button
+                    className="readme-link"
+                    onClick={() => setModalShow(true)}
+                    whileHover={{
+                        scale: 1.2
+                    }}>
+                    View README
+                </motion.button>
+
+                <ReadmeModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    repoName={props.name}
+                    readmeURL={props.readmeURL}
+                />
             </div>
             <div>
             </div>

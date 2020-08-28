@@ -14,6 +14,14 @@ export default {
     return axios.get(`https://api.github.com/repos/the-medium-place/${repoName}/languages`)
   },
 
+  getRepoReadme: function (repoName) {
+    return axios.get(`https://api.github.com/repos/the-medium-place/${repoName}/contents`)
+  },
+
+  getReadmeContent: function (readmeURL) {
+    return axios.get(readmeURL)
+  },
+
   sendMail: function (input) {
     sgMail.setApiKey(API_KEY);
     const msg = {
