@@ -4,13 +4,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
-// import faceIcon from '../../assets/images/faceIcon.png';
+import faceIcon from '../../assets/images/faceIcon.png';
 import ReadmeModal from '../ResumeModal';
 
 
 export default function Index(props) {
     const [modalShow, setModalShow] = useState(false);
-
+    const [expanded, setExpanded] = useState(false);
 
 
 
@@ -19,16 +19,32 @@ export default function Index(props) {
         // <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
         // <Navbar variant="dark" expand="md">
         <div className="nav-custom">
-        <Navbar collapseOnSelect expand="lg" variant='dark'>
+        <Navbar collapseOnSelect expanded={expanded} expand="lg" variant='dark'>
+       
             <Navbar.Toggle
             className="nav-button"
-            aria-controls="responsive-navbar-nav" />
+            aria-controls="responsive-navbar-nav"
+            onClick={() => setExpanded(expanded ? false : 'expanded')} />
             {/* <Navbar.Toggle as={{<Button>}} /> */}
-
+            
             <Navbar.Collapse id="responsive-navbar-nav" className="testing">
+            
+       
+
             <Nav className="flex-column sidebar">
+            <Navbar.Brand href="/home">
+            <img
+                src={faceIcon}
+                // width="30"
+                height="75"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+
+            />
+            </Navbar.Brand> 
                 {props.routes.map(route => (
                     <Nav.Link
+                    onClick={() => setExpanded(false)}
                     key={route.path}
                     as={NavLink}
                     to={route.path}
