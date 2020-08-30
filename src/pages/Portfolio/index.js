@@ -17,6 +17,8 @@ export default class Portfolio extends Component {
                 // FILTER RESULT TO REMOVE 
                 // REPOS WITHOUT 'homepage' VALUE
                 res.data = res.data.filter(repo => repo.homepage !== null)
+                .filter(repo => repo.homepage !== '');
+              
                 console.log(res.data)
                 // ADD LANGUAGES TO STATE OBJ
                 res.data.forEach((repo) => {

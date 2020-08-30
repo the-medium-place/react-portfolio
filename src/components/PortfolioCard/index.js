@@ -11,11 +11,8 @@ library.add(fab, fas);
 
 export default function Index(props) {
 
-    // testing for modal
-    // const [modalShow, setModalShow] = useState(false);
+    const screenshotURL = `https://raw.githubusercontent.com/the-medium-place/${props.name}/master/public/assets/images/screenshot.png`
 
-    // const handleClose = () => setModalShow(false);
-    // const handleShow = () => setModalShow(true);
     return (
         <div className="card-wrapper">
             <motion.div className="port-card text-center"
@@ -28,10 +25,13 @@ export default function Index(props) {
                 </div>
                 <p>
                     {(props.description) ? props.description : 'no description yet'}
-                    <br />{(props.updated_at)}
+                    <br />
+                    {/* {(props.updated_at)} */}
 
                 </p>
-                <br />
+                <hr />
+                <img src={screenshotURL} style={{'height': '200px'}} />
+                <hr />
                 {(props.languageObj) ? (
                     <h4>{Object.keys(props.languageObj).join(', ')}</h4>
                 ) : console.log()}
