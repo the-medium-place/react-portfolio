@@ -19,7 +19,7 @@ export default class Portfolio extends Component {
                 res.data = res.data.filter(repo => repo.homepage !== null)
                 .filter(repo => repo.homepage !== '');
               
-                console.log(res.data)
+                // console.log(res.data)
                 // ADD LANGUAGES TO STATE OBJ
                 res.data.forEach((repo) => {
                     API.getRepoLanguages(repo.name)

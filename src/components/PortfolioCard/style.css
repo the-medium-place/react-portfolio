@@ -14,7 +14,7 @@
     display: flex;
     border: 3px solid rgb(53, 53, 53);
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 8px;
     background: rgb(177, 177, 0);
     box-shadow: 3px 3px 3em 6px inset gray;
     color: white;
@@ -34,7 +34,7 @@
 
 .repo-name:hover {
     transform: scale(1.05);
-    box-shadow: 3px 3px 3em 6px inset gray, 3px 3px 5px 5px black;
+    box-shadow: 3px 3px 3em 6px inset gray, 1px 1px 1em 1px darkslategray;
     transition: 0.3s;
 }
 

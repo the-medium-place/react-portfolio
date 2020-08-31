@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import PortCardImg from '../PortCardImg';
 import { motion } from 'framer-motion';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -17,7 +18,7 @@ export default function Index(props) {
         <div className="card-wrapper">
             <motion.div className="port-card text-center"
                 whileHover={{
-                    scale: 1.1,
+                    scale: 1.05,
                     marginBottom: "30px"
                 }}>
                 <div className="repo-name-wrapper">
@@ -30,7 +31,20 @@ export default function Index(props) {
 
                 </p>
                 <hr />
-                <img src={screenshotURL} style={{'height': '200px'}} />
+
+                <a href={props.homepage} target="_blank" rel="noopener noreferrer">
+                    
+                    <PortCardImg screenshotURL={screenshotURL} />
+                    {/* <motion.img src={screenshotURL} 
+                    className="screenshot-img"
+                    style={{'max-width': '85%'}} 
+                    whileHover={{
+                        scale: 1.1,
+                        boxShadow: "1px 1px 1em 1px darkslategray"
+                    }}/> */}
+                </a>
+
+
                 <hr />
                 {(props.languageObj) ? (
                     <h4>{Object.keys(props.languageObj).join(', ')}</h4>
