@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 // import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
 import faceIcon from '../../assets/images/faceIcon.png';
-import ReadmeModal from '../ResumeModal';
+import ReadmeModal from '../ReadmeModal';
 
 
 export default function Index(props) {
@@ -25,7 +25,7 @@ export default function Index(props) {
                     className="nav-button"
                     aria-controls="responsive-navbar-nav"
                     onClick={() => setExpanded(expanded ? false : 'expanded')} />
-                <Navbar.Collapse id="responsive-navbar-nav" className="testing">
+                <Navbar.Collapse id="responsive-navbar-nav" className="toggle-button">
                     <Nav className="flex-column sidebar">
                         <Navbar.Brand href="/home">
                             <img
