@@ -1,13 +1,18 @@
 .loading-wrapper {
     width: 100%;
-    display: flexbox;
-    flex-direction: column;
     text-align: center;
     margin-top: 60px;
 }
 
-/* .portfolio-wrapper {
+.portfolio-wrapper {
+    /* display: block; */
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-} */
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid black; */
+    height: auto;
+    width: auto;
+    /* overflow-y: auto; */
+    overflow-x: hidden;
+    margin: 0 auto;
+}

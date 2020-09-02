@@ -32,7 +32,7 @@ body {
  
   color: rgb(36, 36, 36);
 
-  overflow-y: auto;
+  /* overflow-y: auto; */
   overflow-x: hidden;
 }
 
