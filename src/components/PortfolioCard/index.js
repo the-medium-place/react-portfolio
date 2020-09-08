@@ -27,13 +27,11 @@ export default function Index(props) {
                 <p>
                     {(props.description) ? props.description : 'no description yet'}
                     <br />
-                    {/* {(props.updated_at)} */}
-
                 </p>
                 <hr />
 
                 <a href={props.homepage} target="_blank" rel="noopener noreferrer">
-                    
+
                     <PortCardImg screenshotURL={screenshotURL} />
                     {/* <motion.img src={screenshotURL} 
                     className="screenshot-img"
@@ -77,8 +75,6 @@ export default function Index(props) {
                     repoName={props.name}
                     readmeURL={props.readmeURL}
                 /> */}
-            </div>
-            <div>
             </div>
         </div>
     )
