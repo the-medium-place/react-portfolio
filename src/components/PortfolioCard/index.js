@@ -16,11 +16,7 @@ export default function Index(props) {
 
     return (
         <div className="card-wrapper">
-            <motion.div className="port-card text-center"
-                whileHover={{
-                    scale: 1.05,
-                    marginBottom: "30px"
-                }}>
+            <div className="port-card text-center">
                 <div className="repo-name-wrapper">
                     <a href={props.homepage} target="_blank" rel="noopener noreferrer"><h2 className="repo-name">{(props.name).toUpperCase()}</h2></a>
                 </div>
@@ -49,32 +45,17 @@ export default function Index(props) {
                 ) : console.log()}
 
 
-            </motion.div>{/* // end of .port-card */}
+            </div>{/* // end of .port-card */}
             <div className="button-wrapper">
                 <a href={props.html_url} target="_blank" rel="noopener noreferrer">
                     <motion.button
                         className="repo-link"
                         whileHover={{
-                            scale: 1.2
+                            scale: 1.1
                         }}>
                         <FontAwesomeIcon icon={["fab", "github"]} />
                     </motion.button>
                 </a>
-                {/* <motion.button
-                    className="readme-link"
-                    onClick={() => setModalShow(true)}
-                    whileHover={{
-                        scale: 1.2
-                    }}>
-                    View README
-                </motion.button> */}
-
-                {/* <ReadmeModal
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
-                    repoName={props.name}
-                    readmeURL={props.readmeURL}
-                /> */}
             </div>
         </div>
     )
