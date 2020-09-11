@@ -12,9 +12,7 @@ export default function Index() {
             <Row className="row top-box" >
                 <Col>
                     <Card
-                        className="bio-card"
-                    // style={{ width: '18rem' }}
-                    >
+                        className="bio-card">
                         <Card.Img variant="top" src={BigPic} className="bio-pic" alt="My most dramatic pose on the steps. So handsome!" />
                         <Card.Body>
                             <Card.Title className="text-center" >Hello!</Card.Title>
@@ -25,7 +23,7 @@ export default function Index() {
                                 MySQL/Sequelize, Command Line, and Git. I also like to dabble in a few other languages including
                                 Python and ASL.
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            {/* <Button variant="primary">Go somewhere</Button> */}
                         </Card.Body>
                     </Card>
 
