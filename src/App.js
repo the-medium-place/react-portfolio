@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import AboutMe from './pages/AboutMe';
 import Portfolio from './pages/Portfolio';
 import ContactMe from './pages/ContactMe';
+import { Container } from '@material-ui/core';
+import NavDrawer from './components/NavDrawer';
 import './App.css';
 
 const routes = [
@@ -16,7 +18,10 @@ const routes = [
 function App() {
   return (
     <>
-    <AboutMe />
+    <NavDrawer />
+    <Container>
+      <AboutMe />
+    </Container>
     </>
   )
 
