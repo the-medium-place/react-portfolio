@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function ContactMe() {
+export default function NoMatch() {
     return (
         <div>
-            <h1>Contact me!</h1>
+            404 Error - Page not found 
         </div>
     )
 }
