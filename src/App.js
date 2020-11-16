@@ -27,9 +27,9 @@ function App() {
       <NavDrawer routes={routes}/>
       <Container>
         <Switch>
-          {routes.map(route => {
+          {routes.map((route, i) => {
             return (
-              <Route exact path={route.path}>
+              <Route exact path={route.path} key={i}>
                 <route.Component />
               </Route>
             )
