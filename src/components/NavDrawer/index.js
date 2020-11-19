@@ -16,7 +16,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import EightBitIcon from '../../assets/images/8bitAvatar.png'
 import NavAvatar from '../../assets/images/navAvatar.png'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
   },
@@ -31,8 +31,16 @@ const useStyles = makeStyles({
   drawerWidth900px: {
     background: `url(${NavAvatar}) left center no-repeat`,
     backgroundSize: '250px 250px'
+  },
+  menuBtn: {
+    background: theme.palette.secondary.dark,
+    color: theme.palette.text.secondary
+  },
+  drawerList: {
+    background: theme.palette.primary.light,
+    color: theme.palette.text.primary
   }
-});
+}));
 
 export default function NavDrawer({ routes }) {
   const minWidth900 = useMediaQuery('(min-width:900px)');
@@ -54,14 +62,14 @@ export default function NavDrawer({ routes }) {
       onKeyDown={toggleDrawer(false)}
     >
       <List 
-      // className={classes.drawer}
+      className={classes.drawerList}
       >
         {routes.map((route, i) => {
           if (route.name.length > 0) {
             return (
               <ListItem button key={i}>
-                <ListItemIcon>{route.Icon ? <route.Icon />: <CodeIcon />}</ListItemIcon>
                 <Link href={route.path} style={{ textDecoration: 'none' }}>
+                <ListItemIcon>{route.Icon ? <route.Icon />: <CodeIcon />}</ListItemIcon>
                   <ListItemText primary={route.name} />
                 </Link>
               </ListItem>
@@ -77,7 +85,7 @@ export default function NavDrawer({ routes }) {
     <Box style={{ margin: '1rem' }}>
       <React.Fragment>
         {/* <Button onClick={toggleDrawer(true)}>BOTTOM</Button> */}
-        <Fab variant="extended" onClick={toggleDrawer(true)}>
+        <Fab variant="extended" onClick={toggleDrawer(true)} className={classes.menuBtn}>
           <MenuIcon className={classes.extendedIcon} />
         Menu
       </Fab>

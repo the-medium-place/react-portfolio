@@ -7,13 +7,46 @@ import { Container } from '@material-ui/core';
 import NavDrawer from './components/NavDrawer';
 import NoMatch from './pages/NoMatch';
 import MailIcon from '@material-ui/icons/Mail';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import HomeIcon from '@material-ui/icons/Home';
 import LaptopIcon from '@material-ui/icons/LaptopMac';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Splash from './pages/Splash';
+
 
 import './App.css';
 
+// TODO: create custom color themes!!
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#EEF2D0'// offwhite - used to be '#7986cb'
+    },
+    secondary: {
+      main: '#4D7343'// green - used to be #bdbdbd
+    },
+    terciary: {
+      main: '#A67D65'//brownish - used to be "#bada55"
+    },
+    text: {
+      primary: '#080B0D', // nearly black
+      secondary: '#F2F2F2'
+    }
+  }
+})
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    // background: theme.palette.secondary.dark
+  }
+
+}))
+
 const routes = [
-  { path: '/', name: '', Component: AboutMe },
+  { path: '/', name: 'Home', Component: Splash, Icon: HomeIcon },
   { path: '/home', name: 'About Me', Component: AboutMe },
   { path: '/portfolio', name: 'Portfolio', Component: Portfolio, Icon: LaptopIcon },
   { path: '/contact', name: 'Contact Me', Component: ContactMe, Icon: MailIcon },
@@ -22,20 +55,27 @@ const routes = [
 
 
 function App() {
+  const classes = useStyles();
+
+
+
   return (
     <Router>
-      <NavDrawer routes={routes}/>
-      <Container>
-        <Switch>
-          {routes.map((route, i) => {
-            return (
-              <Route exact path={route.path} key={i}>
-                <route.Component />
-              </Route>
-            )
-          })}
-        </Switch>
-      </Container>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <NavDrawer routes={routes} />
+        <Container>
+          <Switch>
+            {routes.map((route, i) => {
+              return (
+                <Route exact path={route.path} key={i}>
+                  <route.Component />
+                </Route>
+              )
+            })}
+          </Switch>
+        </Container>
+      </ThemeProvider>
     </Router>
   )
 

@@ -51,13 +51,12 @@ app.post('/sendmail', ({ body },res) => {
           html: `Hey Zac! You've received a message!<br><br>From: ${username}<br>Email: ${userEmail}<br><br>Message: ${userMessage}`,
         };
         sgMail.send(msg).then(dat => {
-            console.log('message sent\n===========', dat)
-            res.status(dat.statusCode)
+            // console.log('message sent\n===========', dat)
+            res.status(202).send('success');
         })
         .catch(err=>{
             console.error(err)
-            res.status(500)
-
+            res.status(500).send('unsuccess');
         });
 })
 

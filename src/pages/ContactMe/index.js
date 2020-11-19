@@ -9,11 +9,17 @@ import Grid from '@material-ui/core/Grid';
 import EightBitAvatar from '../../assets/images/8bitAvatar.png';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import ContactMailIcon from '@material-ui/icons/ContactMail'
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+    },
+    pageTitle: {
+        fontSize: '2.5rem'
     },
     button: {
         margin: theme.spacing(3),
@@ -44,7 +50,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 
 export default function ContactMe() {
@@ -54,9 +62,43 @@ export default function ContactMe() {
         message: ""
     })
 
+    const [successBarOpen, setSuccessBarOpen] = useState(false);
+    const [failureBarOpen, setFailureBarOpen] = useState(false);
+    const [failureBarText, setFailureBarText] = useState('')
+
     const handleSendClick = (e) => {
         e.preventDefault();
-        API.sendMail(emailState);
+
+        if (emailState.name.length < 1 && emailState.message.length < 1 && !(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(emailState.email)) {
+            console.log('please enter valid info');
+            setFailureBarText("You didn't enter any valid information!")
+            setFailureBarOpen(true);
+        }
+        // else if(){
+
+        // } else if(){
+
+        // }
+
+        else {
+
+            API.sendMail(emailState).then(res => {
+                console.log(res)
+                if (res.data === 'success') {
+                    console.log('success');
+                    setSuccessBarOpen(true);
+                } else {
+                    console.log('didnt work');
+                    setFailureBarText('Server error! Oh noes!')
+                    setFailureBarOpen(true);
+                }
+            });
+            setEmailState({
+                email: '',
+                name: '',
+                message: ''
+            })
+        }
 
     }
 
@@ -69,91 +111,178 @@ export default function ContactMe() {
         setEmailState({ ...emailState, [name]: value })
     }
 
+    const handleSuccessBarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setSuccessBarOpen(false);
+    }
+
+    const handleFailureBarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setFailureBarOpen(false);
+    }
+
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
-                <Grid item xs={2}></Grid>
-                <Grid item xs={8}>
-                    <Paper>
-                        <Grid item xs={12} className={classes.formTitle}>
-                            <h1 className={classes.formTitleText}>Reach out and touch someone (me)!</h1>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSendClick}>
-                                <Grid item xs={5}>
-                                    <TextField fullWidth id="standard-basic" label="Name" name="name" value={emailState.name} onChange={handleInputChange} />
-                                </Grid>
-                                <Grid item xs={5}>
-                                    <TextField fullWidth type="email" id="standard-basic" label="Email" name="email" value={emailState.email} onChange={handleInputChange} />
-                                </Grid>
-
-                                <Grid item xs={12}>
-                                    <TextField id="standard-multiline-flexible" multiline rows={4} rowsMax={30} label="Message" name="message" value={emailState.message} onChange={handleInputChange} fullWidth />
-                                </Grid>
-                                <Button
-                                    variant="contained"
-                                    // color="primary"
-                                    type="submit"
-                                    className={classes.button}
-                                    endIcon={<SendIcon />}
-                                >
-                                    Send
-                                </Button>
-                            </form>
-                        </Grid>
-                    </Paper>
+                <Grid
+                    container
+                    xs={12}
+                    justify="center"
+                    alignItems="center"
+                >
+                    <h1 className={classes.pageTitle}>Choose an option here, or use the form below!</h1>
                 </Grid>
-                <Grid item xs={2}></Grid>
                 <Grid className={classes.contactLinkBox} item xs={12} md={4}>
-                    {/* <div style={{width: '90%', height: '3rem'}} className={classes.contactLink}>
-                    zgstowell@gmail.com
-                    </div> */}
                     <Button
                         variant="contained"
-                        style={{width: '90%', height: '3rem'}}
+                        style={{ width: '90%', height: '3rem' }}
                         color="default"
                         className={classes.button}
                         href="mailto:zgstowell@gmail.com"
                         target="_blank"
-                        // startIcon={<CloudUploadIcon />}
+                        startIcon={<ContactMailIcon />}
                     >
                         zgstowell@gmail.com
                     </Button>
                 </Grid>
                 <Grid className={classes.contactLinkBox} item xs={12} md={4}>
-                    {/* <div style={{ width: '90%', height: '3rem' }} className={classes.contactLink}>
-                        github profile
-                    </div> */}
-                <Button
+                    <Button
                         variant="contained"
-                        style={{width: '90%', height: '3rem'}}
+                        style={{ width: '90%', height: '3rem' }}
                         color="default"
                         className={classes.button}
                         href="http://github.com/the-medium-place"
                         startIcon={<GitHubIcon />}
                         target="_blank"
                     >
-                        GitHub
+                        GitHub Profile
                     </Button>
                 </Grid>
                 <Grid className={classes.contactLinkBox} item xs={12} md={4}>
-                    {/* <div style={{ width: '90%', height: '3rem' }} className={classes.contactLink}>
-                        linkedin profile
-                    </div> */}
+
                     <Button
                         variant="contained"
-                        style={{width: '90%', height: '3rem'}}
+                        style={{ width: '90%', height: '3rem' }}
                         color="default"
                         className={classes.button}
-                        // href="mailto:zgstowell@gmail.com"
+                        href="https://www.linkedin.com/in/zachary-stowell/"
                         startIcon={<LinkedInIcon />}
                         target="_blank"
                     >
-                        zgstowell@gmail.com
+                        LinkedIn Profile
                     </Button>
                 </Grid>
+                <Grid item xs={5} style={{ borderTop: '3px dotted black' }}></Grid>
+                <Grid item xs={2}></Grid>
+                <Grid item xs={5} style={{ borderTop: '3px dotted black' }}></Grid>
+
+                <Grid item xs={5}></Grid>
+                <Grid item xs={2} style={{ marginTop: '-3.3rem', textAlign: 'center' }}><h2>OR</h2></Grid>
+                <Grid item xs={5}></Grid>
+
+                <Grid item md={2} xs={0}></Grid>
+                <Grid item xs={12} md={8}>
+                    <Paper>
+                        <Grid item xs={12} className={classes.formTitle}>
+                            <h1 className={classes.formTitleText}>Reach out and touch someone (me)!</h1>
+                        </Grid>
+                        <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSendClick}>
+                            <Grid item xs={12}>
+                                <Grid container spacing={3}>
+                                    <Grid item xs={8} md={3}>
+                                        <TextField
+                                            required
+                                            fullWidth
+                                            id="standard-basic"
+                                            label="Name"
+                                            name="name"
+                                            value={emailState.name}
+                                            onChange={handleInputChange}
+                                            error={emailState.name.length < 1}
+                                            helperText={emailState.name.length < 1 ? 'Who are you?' : `Oh, hello ${emailState.name}`}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={8} md={3}>
+                                        <TextField
+                                            error={!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(emailState.email)}
+                                            required
+                                            fullWidth
+                                            type="email"
+                                            id="standard-basic"
+                                            label="Email"
+                                            name="email"
+                                            value={emailState.email}
+                                            onChange={handleInputChange}
+                                            helperText={(!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(emailState.email)) ? "Where can I reach you?" : `I'll be responding to you at '${emailState.email}'`}
+                                        />
+                                    </Grid>
+
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            id="standard-multiline-flexible"
+                                            error={emailState.message.length < 1}
+                                            helperText={emailState.message.length < 1 ? 'Say something nice!' : emailState.message.length}
+                                            required
+                                            multiline
+                                            rows={4}
+                                            rowsMax={30}
+                                            label="Message"
+                                            name="message"
+                                            value={emailState.message}
+                                            onChange={handleInputChange}
+                                            fullWidth />
+                                    </Grid>
+                                    <Button
+                                        variant="contained"
+                                        // color="primary"
+                                        type="submit"
+                                        className={classes.button}
+                                        endIcon={<SendIcon />}
+                                    >
+                                        Send
+                                </Button>
+                                </Grid>
+                            </Grid>
+                        </form>
+                    </Paper>
+                </Grid>
+                <Grid item md={2} xs={0}></Grid>
 
             </Grid>
+
+            {/* SUCCESS SNACKBAR */}
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                open={successBarOpen}
+                autoHideDuration={3000}
+                onClose={handleSuccessBarClose}
+            >
+                <Alert onClose={handleSuccessBarClose} severity="success">
+                    You message has been sent... Maybe Zac is reading it already!!
+                </Alert>
+            </Snackbar>
+
+            {/* FAILURE SNACKBAR */}
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                open={failureBarOpen}
+                autoHideDuration={3000}
+                onClose={handleFailureBarClose}
+            >
+                <Alert onClose={handleFailureBarClose} severity="error">
+                    {failureBarText}
+                </Alert>
+            </Snackbar>
         </div>
     )
 }

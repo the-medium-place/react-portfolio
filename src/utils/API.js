@@ -22,7 +22,6 @@ export default {
   },
 
   sendMail: function (input) {
-    console.log(input);
     return axios.post("http://localhost:8080/sendmail", input);
   }
 
