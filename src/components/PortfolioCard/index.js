@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,20 +15,23 @@ import AccountTreeTwoToneIcon from '@material-ui/icons/AccountTreeTwoTone';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        transition: '0.3s',
-        flexGrow: 1,
-        '&:hover': {
-            transform: 'translateY(-3px)',
+        height: '40vh',
+        marginBottom: '10vh'
+        // transition: '0.3s',
+        // flexGrow: 1,
+        // '&:hover': {
+            // transform: 'translateY(-3px)',
             // boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
             // filter: 'drop-shadow(0 4px 20px 0 rgba(0,0,0,0.12)'
-        },
+        // },
     },
     paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
+        // padding: theme.spacing(2),
+        // textAlign: 'center',
         color: theme.palette.text.main,
-        marginBottom: theme.spacing(3),
-        background: theme.palette.primary.main
+        // height: 'auto'
+        // marginBottom: theme.spacing(3),
+        // background: theme.palette.primary.main
     },
     heading: {
         fontSize: '1.2rem',
@@ -56,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PortfolioCard({ project }) {
     console.log(project)
-    const { github, deployed, description, title, screenshot, technologies } = project;
+    const { github, deployed, description, title, screenshot, technologies, tagline } = project;
     const classes = useStyles();
 
 
@@ -65,15 +69,12 @@ export default function PortfolioCard({ project }) {
 
     return (
         <Grid container justify="center" className={classes.root}>
-            <Grid item xs={11}>
+            {/* <Grid item xs={11}>
                 <Paper square className={classes.paper} style={{ height: 'auto' }} elevation={3}>
                     <Grid container>
                         <Grid item xs={12}>
                             <img src={screenshot} alt="kitten" style={{ maxWidth: '100%' }} />
                         </Grid>
-                        {/* <Grid item xs={12} style={{ textAlign: 'center', marginTop: '-2rem', fontSize: '1.5rem', fontWeight: 'bold', color: 'red' }}>
-                            <p>{title}</p>
-                        </Grid> */}
                         <Grid item xs={12}>
                             <Accordion className={classes.accordion}>
                                 <AccordionSummary
@@ -117,7 +118,70 @@ export default function PortfolioCard({ project }) {
                     </Grid>
 
                 </Paper>
+            </Grid> */}
+            <Grid item xs={11} className="flip-card">
+                <div className={classes.paper + " flip-card-inner"}>
+                    <Grid container justify="center" className="flip-card-front">
+                        <Grid item xs={11} style={{height: 'auto'}}>
+                            <img src={screenshot} alt={title} style={{ width: '100%' }} />
+                        </Grid>
+                        {/* <Grid item xs={12}> */}
+                            {/* <Accordion className={classes.accordion}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                    <Typography className={classes.heading}>{title}</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        {description}
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion> */}
+                            <Grid style={{ padding: '.6rem', fontWeight: 'bold'}} item xs={10}>
+                                <h2>
+                                    {title}<br />
+                                    <small>{tagline}</small>
+                                </h2>
+                            </Grid>
+                        {/* </Grid> */}
+                    </Grid>
+                    <div className="flip-card-back">
+                        <Grid container>
+                            <Grid item xs={12} spacing={3}>
+                                <p>{description}</p>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <h4>{technologies}</h4>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ButtonGroup fullWidth size="small" color="secondary-dark" aria-label="outlined primary button group">
+                                    <Button
+                                        startIcon={<WebTwoToneIcon />}
+                                        href={deployed}
+                                        variant="contained"
+                                        className={classes.linkBtn}
+                                    >
+                                        Live App
+                                    </Button>
+                                    <Button
+                                        startIcon={<AccountTreeTwoToneIcon />}
+                                        href={github}
+                                        variant="contained"
+                                        className={classes.linkBtn}
+                                    >
+                                        Git Repo
+                                    </Button>
+                                </ButtonGroup>
+                            </Grid>
+                        </Grid>
+
+                    </div>
+                </div>
             </Grid>
+
         </Grid>
 
 

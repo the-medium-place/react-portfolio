@@ -14,6 +14,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import Splash from './pages/Splash';
+import Background from './assets/images/background90s.png';
 
 
 import './App.css';
@@ -40,7 +41,8 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // background: theme.palette.secondary.dark
+    // background: `url('${Background}') no-repeat center fixed`,
+    // backgroundSize: '100vw 100vh'
   }
 
 }))
@@ -63,8 +65,8 @@ function App() {
     <Router>
       <CssBaseline />
       <ThemeProvider theme={theme}>
+        <Container className={classes.root}>
         <NavDrawer routes={routes} />
-        <Container>
           <Switch>
             {routes.map((route, i) => {
               return (

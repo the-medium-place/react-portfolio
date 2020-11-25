@@ -76,8 +76,10 @@ const projects = [
     id: "markit",
     github: "https://github.com/dianastebbins/mark-it-react",
     deployed: "https://awesome-mark-it.herokuapp.com/",
-    description: "This full-stack application provides a way for users to search for local farmer's markets as well as create a vendor profile which allows the user to list and sell products - creating a way for consumers to get their farmer's market shopping done at a safe 'social distance'.  Items created appear on the app's map function, and users can favorite a vendor, item or market and have it appear on their profile page.",
+    description: "Search for local markets, contact market vendors, buy or sell your wares at your favorite local farmer's market! Mark-It transcends the age of COVID and brings farm-fresh produce into the age of social-distancing!",
+    // "This full-stack application provides a way for users to search for local farmer's markets as well as create a vendor profile which allows the user to list and sell products - creating a way for consumers to get their farmer's market shopping done at a safe 'social distance'.  Items created appear on the app's map function, and users can favorite a vendor, item or market and have it appear on their profile page.",
     title: "Mark-It",
+    tagline: "Farm-to-market-to-internet-database...",
     screenshot: 'https://i.imgur.com/rcTeF3S.jpg',
     technologies: "Node.js, Express, React JS, Sequelize, HTML5, CSS3, Bulma CSS"
 
@@ -99,6 +101,7 @@ const projects = [
     deployed: "http://awesome-group-planner.herokuapp.com/",
     description: "This application allows multiple users to collaborate on multiple events. It utilizes a Sequelize database to store all relevant data and allows the user to view, edit, and delete user information (full CRUD functionality!). Multiple users can collaborate on multiple projects or events, while keeping track of event specific tasks and expenditures. This was a one-week collaborative project with a team of four, for which I acted as Project Manager",
     title: "To-Gather",
+    tagline: "Getting people together, Helping them ToGather...",
     screenshot: 'https://i.imgur.com/tj8sCI5.jpg',
     technologies: "HTML5, CSS3, Node.js, Sequelize, Handlebars JS, Express, Foundation CSS"
 
@@ -109,6 +112,7 @@ const projects = [
     deployed: "https://awesome-google-books-react.herokuapp.com/",
     description: "This Full-Stack (MERN) application uses React JS and Mongoose, allowing a user to search the Google Books API, and save any results to a list that is displayed on the 'Saved' page. The user can also delete books from this list giving the app CR-D functionality.",
     title: "Google Books Search",
+    tagline: "Simple but elegant book search...",
     screenshot: 'https://i.imgur.com/4ZhnYG9.png',
     technologies: "Mongoose DB, Express, React JS, Node.js, HTML5, CSS3, Bootstrap/React-Bootstrap CSS Framework"
 
@@ -119,6 +123,7 @@ const projects = [
     deployed: "https://bbelka.github.io/covidDistractions/",
     description: "This application is designed for a user who is looking for the option to escape a depressing new cycle (specifically the COVID-19 pandemic). While one path (social) leads to news feeds with all the anxiety of the outside world, the other path (distance) takes the user away with movies, games and a relaxing breath time. This was a one-week collaborative project in a team of four.",
     title: "Social // Distance",
+    tagline: "There's good news AND bad news...",
     screenshot: 'https://i.imgur.com/m4b4xIC.jpg',
     technologies: "HTML5, CSS3, JQuery, Skeleton Framework"
   },
